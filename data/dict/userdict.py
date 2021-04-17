@@ -3,8 +3,10 @@ from collections import UserDict
 class StringKeyDict(UserDict):
 
     def __init__(self, items):
-        super().__init__(items)
-        # self.update(items)
+         super().__init__(items)
+        # self.data is init in UserDict.__init__,so we can not call update directly
+        #  self.update(items)
+        # super().update(items)
 
     def __missing__(self, key):
         if isinstance(key, str):
